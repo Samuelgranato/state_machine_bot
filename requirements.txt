@@ -1,0 +1,12 @@
+opencv-python
+pyautogui
+numpy
+mss
+screeninfo
+black
+isort
+flake8
+matplotlib
+pillow
+pytesseract
+pyqt5
