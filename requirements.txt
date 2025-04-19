@@ -10,3 +10,4 @@ matplotlib
 pillow
 pytesseract
 pyqt5
+easyocr

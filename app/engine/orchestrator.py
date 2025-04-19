@@ -10,6 +10,7 @@ from capture.screen import capturar_tela
 def run_bot_loop(estado):
     while True:
         frame = capturar_tela()
+        estado["__frame"] = frame
         update_life(estado, frame)
         update_stamina(estado, frame)
         avaliar_triggers(estado)

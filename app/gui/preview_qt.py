@@ -1,14 +1,13 @@
 import sys
 
 import cv2
-import numpy as np
 from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtWidgets import QApplication, QLabel, QVBoxLayout, QWidget
 from screeninfo import get_monitors
 
 from capture.screen import capturar_tela
-from config import MONITOR_INDEX
+from config import GAME_MONITOR_INDEX, DEBUG_MONITOR_INDEX
 
 
 class TelaPreview(QWidget):
@@ -32,23 +31,19 @@ class TelaPreview(QWidget):
 
     def recortar_monitor(self, frame):
         monitores = get_monitors()
-        if 0 <= MONITOR_INDEX < len(monitores):
-            m = monitores[MONITOR_INDEX]
+        if 0 <= GAME_MONITOR_INDEX < len(monitores):
+            m = monitores[GAME_MONITOR_INDEX]
             return frame[m.y : m.y + m.height, m.x : m.x + m.width]
         return frame
 
     def atualizar_frame(self):
-        frame = capturar_tela()
-        frame = self.recortar_monitor(frame)
-
-        # Aqui você pode desenhar, reconhecer, etc (diretamente no frame do orchestrator)
-        self.estado["__frame"] = frame.copy()
-
-        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        h, w, ch = frame_rgb.shape
-        bytes_per_line = ch * w
-        q_img = QImage(frame_rgb.data, w, h, bytes_per_line, QImage.Format_RGB888)
-        self.label_imagem.setPixmap(QPixmap.fromImage(q_img))
+        frame = self.estado.get("__frame")
+        if frame is not None:
+            frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            h, w, ch = frame_rgb.shape
+            bytes_per_line = ch * w
+            q_img = QImage(frame_rgb.data, w, h, bytes_per_line, QImage.Format_RGB888)
+            self.label_imagem.setPixmap(QPixmap.fromImage(q_img))
 
 
 def run_pyqt_preview(estado):
