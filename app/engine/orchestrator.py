@@ -11,8 +11,10 @@ def run_bot_loop(estado):
     while True:
         frame = capturar_tela()
         estado["__frame"] = frame
-        update_life(estado, frame)
-        update_stamina(estado, frame)
-        avaliar_triggers(estado)
-        executar_job(estado)
-        time.sleep(1)
+
+        # update_life(estado, frame)
+        # update_stamina(estado, frame)
+        # avaliar_triggers(estado)
+        # executar_job(estado)
+
+        time.sleep(0.03)  # ~33 FPS
