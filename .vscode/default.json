@@ -1,12 +1,8 @@
 {
-  "python.formatting.provider": "black",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
   },
-  "python.linting.enabled": true,
-  "python.linting.flake8Enabled": true,
-  "python.linting.flake8Path": ".venv/Scripts/flake8.exe",
-  "python.formatting.blackPath": ".venv/Scripts/black.exe",
-  "python.sortImports.path": ".venv/Scripts/isort.exe"
+  "flake8.path": [".venv/Scripts/flake8.exe"],
+  "isort.path": [".venv/Scripts/isort.exe"]
 }

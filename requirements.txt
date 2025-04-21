@@ -11,3 +11,8 @@ pillow
 pytesseract
 pyqt5
 easyocr
+HumanCursor
+pywin32
+ultralytics
+rich
+pynput

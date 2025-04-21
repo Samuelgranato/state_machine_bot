@@ -1,6 +1,8 @@
-import tkinter as tk
-from screeninfo import get_monitors
 import time
+import tkinter as tk
+
+from screeninfo import get_monitors
+
 
 def abrir_janelas_em_cada_monitor():
     monitores = get_monitors()
@@ -15,6 +17,7 @@ def abrir_janelas_em_cada_monitor():
         root.update()  # atualiza a janela antes de seguir
         root.after(1000, root.destroy)  # fecha após 1 segundo
         root.mainloop()
+
 
 if __name__ == "__main__":
     abrir_janelas_em_cada_monitor()

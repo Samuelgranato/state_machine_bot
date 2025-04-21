@@ -1,0 +1,14 @@
+path: C:/Users/samue/Documents/bot_rune/dataset
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ["goblin"]
+
+roboflow:
+  workspace: statemachinebot
+  project: bot-t7nqy
+  version: 5
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/statemachinebot/bot-t7nqy/dataset/5

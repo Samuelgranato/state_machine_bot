@@ -51,4 +51,4 @@ def run_pyqt_preview(estado):
 if __name__ == "__main__":
     estado = criar_estado()
     threading.Thread(target=run_bot_loop, args=(estado,), daemon=True).start()
-    run_pyqt_preview(estado)
+    # run_pyqt_preview(estado)

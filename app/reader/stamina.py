@@ -7,6 +7,8 @@ def update_stamina(estado, frame):
     roi = frame[y : y + h, x : x + w]
 
     digits = get_text(roi)
+    if not digits:
+        return
 
     try:
         value = int(digits)
